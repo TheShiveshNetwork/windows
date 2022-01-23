@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div class="desktop">
+        <!-- taskbar -->
+        <div class="taskbar">
+            <div class="icons">
+                <!-- start -->
+                <div class="icon_img">
+                    <img class="start" onclick="start()" title="Start" src="images/start.png">
+                </div>
+                <!-- search -->
+                <div class="icon_img search" onclick="start()">
+                    <img src="https://www.freeiconspng.com/thumbs/search-icon-png/search-icon-png-5.png">
+                </div>
+                <div class="icon_img dark_search" onclick="start()" style="display: none;">
+                    <img src="https://www.freeiconspng.com/thumbs/search-icon-png/search-icon-png-2.png">
+                </div>
+                <!-- file -->
+                <div class="icon_img">
+                    <img class="explorer" title="File Explorer" src="images/File-Explorer.png">
+                </div>
+                <!-- me -->
+                <div class="icon_img">
+                    <img class="me" title="Microsoft Edge" src="images/Edge-logo.png">
+                </div>
+                <!-- chrome -->
+                <div class="icon_img">
+                    <img class="chrome" title="Chrome" src="images/chrome.png">
+                </div>
+                <!-- notepad -->
+                <div class="icon_img">
+                    <img class="notepad" title="Notepad" src="images/Win-Notepad.webp">
+                </div>
+            </div>
+            <div class="right">
+                <i class="fal fa-comment-alt"></i>
+                <div class="date-time">
+                    <div class="time" id="time"></div>
+                    <p>
+                    <div class="date" id="date"></div>
+                    </p>
+                </div>
+
+                <div class="icons">
+                    <i class="fal fa-chevron-up"></i>
+                    <i class="fas fa-wifi" title="Internet Access"></i>
+                    <i class="fas fa-volume-up"></i>
+                    <!-- <i class="fas fa-battery-three-quarters"></i> -->
+                </div>
+            </div>
+        </div>
+        <!-- taskbar window -->
+        <div class="taskbar_window">
+            <div class="info_icon"></div>
+            <div class="info_name">Caterwaul</div>
+            <div class="info_links">
+                <div class="link">
+                    <a href="https://mrdevknown.blogspot.com/">MrDevKnown</a>
+                </div>
+                <div class="link">
+                    <a href="https://mypencyl.blogspot.com/">Pencyl</a>
+                </div>
+                <div class="link">
+                    <a href="#">About</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- file window -->
+        <div class="file_window window">
+            <div class="titlebar">
+                <div class="title"><img src="images/Win-Notepad.webp"
+                        style="height: 1rem; padding-right: 0.7rem;">Window</div>
+                <div class="right">
+                    <i class="far fa-minus" style="font-size: 0.9rem;"></i>
+                    <i class="fal fa-window-restore" style="font-size: 0.9rem;"></i>
+                    <i class="fal fa-times"></i>
+                </div>
+            </div>
+            <div class="window-content">hello</div>
+        </div>
+
+        <!-- chrome window -->
+        <div class="window chrome_window">
+            <div class="titlebar">
+                <div class="title"><img src="images/chrome.png" style="height: 1rem; padding-right: 0.7rem;">Chrome
+                </div>
+                <div class="right">
+                    <i class="far fa-minus crmin" style="font-size: 0.9rem;"></i>
+                    <i class="fal fa-window-restore crmax" style="font-size: 0.9rem;"></i>
+                    <i class="fal fa-times crclose"></i>
+                </div>
+            </div>
+            <div class="window-content" id="chrome">
+                <div class="sites_area">
+                    <div class="chrome_area">
+                        <div class="search_chrome"></div>
+                        <div class="site_icons">
+                            <a href="https://mrdevknown.blogspot.com/" target="_blank">
+                                <img src="images/mrdevknown.png"></a>
+                            <a href="https://mypencyl.blogspot.com/" target="_blank">
+                                <img src="images/pencyl-icon.png"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- me window -->
+        <div class="window me_window">
+            <div class="titlebar">
+                <div class="title"><img src="images/Edge-logo.png"
+                        style="height: 1rem; padding-right: 0.7rem;">Macrohard Edge</div>
+                <div class="right">
+                    <i class="far fa-minus memin" style="font-size: 0.9rem;"></i>
+                    <i class="fal fa-window-restore memax" style="font-size: 0.9rem;"></i>
+                    <i class="fal fa-times meclose"></i>
+                </div>
+            </div>
+            <div class="window-content" id="mrdevknown"></div>
+        </div>
+
+        <!-- exp window -->
+        <div class="exp_window window">
+            <div class="titlebar">
+                <div class="title"><img src="images/File-Explorer.png"
+                        style="height: 1rem; padding-right: 0.7rem;">Explorer</div>
+                <div class="right">
+                    <i class="far fa-minus expmin" style="font-size: 0.9rem;"></i>
+                    <i class="fal fa-window-restore expmax" style="font-size: 0.9rem;"></i>
+                    <i class="fal fa-times expclose"></i>
+                </div>
+            </div>
+            <div class="window-content" id="explorer">
+                <div class="exp_area">
+                    <div class="exp_content">
+                        <div class="exp_icon" id="about">
+                            <img src="images/Win-Notepad.webp">
+                            <p>About</p>
+                        </div>
+                        <div class="exp_icon">
+                            <img src="images/Win-Notepad.webp">
+                            <p>Hello</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- side panel -->
+        <div class="sidebar_close side_panel">
+            <div class="notification_area">
+                <a href="https://mrdevknown.blogspot.com/" target="_blank">
+                    <div class="notification">
+                        <div class="name">
+                            MrDevKnown
+                        </div>
+                        <div class="message">
+                            How to make a Windows 11 Themed Website
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="action_area">
+                <div class="action dark_action">
+                    <div class="mode">
+                        <i class="fas fa-moon"></i>
+                        <p>Dark mode</p>
+                    </div>
+                </div>
+                <div class="action expand_action">
+                    <div class="expand">
+                        <i class="fal fa-expand-wide"></i>
+                        <p>Fullscreen</p>
+                    </div>
+                </div>
+                <!-- <div class="action"></div>
+                <div class="action"></div> -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
