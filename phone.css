@@ -149,7 +149,7 @@ body {
     font-size: 1.5rem;
 }
 
-.app_area {
+.app_area, .google_window {
     display: none;
     background: var(--theme-color);
     padding: 1.6rem 0 2.4rem 0;
@@ -170,9 +170,12 @@ body {
 .about_icon {
     height: 3rem;
     width: 3rem;
-    background: linear-gradient(45deg, rgb(85, 127, 255), rgb(0, 68, 255));
-    margin: 1rem 0.5rem;
+    background: linear-gradient(45deg, rgb(95, 135, 255), rgb(111, 0, 255));
+    margin: 1rem 0.5rem 0.5rem 0.5rem;
     border-radius: 0.6rem;
+}
+.hello_icon {
+    background: linear-gradient(45deg, rgb(85, 255, 127), rgb(19, 151, 7));
 }
 
 .about_icon .text {
@@ -184,4 +187,37 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-40%, -50%);
+}
+.google_widget {
+    opacity: 90%;
+    background: var(--theme-color);
+    height: 2.7rem;
+    width: 100%;
+    margin-top: 1.2rem;
+    border-radius: 6rem;
+    padding: 0%;
+}
+.google_widget img {
+    margin: 0;
+    height: 2.7rem;
+    width: 2.7rem;
+}
+.google_window_top {
+    height: 2.7rem;
+    border-bottom: 0.1rem solid var(--icon-color);
+    margin: 0.5rem;
+}
+.google_window_top img {
+    height: 2.7rem;
+    width: 2.7rem;
+}
+.feed {
+    height: 2.7rem;
+}
+.feed i {
+    margin-right: 0.4rem;
+}
+.search_feeds {
+    color: var(--font-color);
+    margin: 1rem;
 }

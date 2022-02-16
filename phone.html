@@ -18,7 +18,7 @@
             -moz-user-select: none;
             -webkit-user-select: none;
             --wallpaper: url('images/phone-wallpaper-responsive.jpg');
-            --theme-color: #fff;
+            --theme-color: #F2F2F2;
             --font-color: #000;
             --shadow-gradient: rgb(145, 145, 145) 0 0 0.4rem 0;
             --icon-color: rgb(233, 233, 233);
@@ -124,6 +124,7 @@
         }
 
         .apps .widget {
+            opacity: 90%;
             background: var(--theme-color);
             border-radius: 0.3rem;
             height: 9rem;
@@ -159,7 +160,7 @@
             font-size: 1.5rem;
         }
 
-        .app_area {
+        .app_area, .google_window {
             display: none;
             background: var(--theme-color);
             padding: 1.6rem 0 2.4rem 0;
@@ -180,8 +181,8 @@
         .about_icon {
             height: 3rem;
             width: 3rem;
-            background: linear-gradient(45deg, rgb(85, 127, 255), rgb(0, 68, 255));
-            margin: 1rem 0.5rem;
+            background: linear-gradient(45deg, rgb(95, 135, 255), rgb(111, 0, 255));
+            margin: 1rem 0.5rem 0.5rem 0.5rem;
             border-radius: 0.6rem;
         }
 
@@ -194,6 +195,42 @@
             top: 50%;
             left: 50%;
             transform: translate(-40%, -50%);
+        }
+        .hello_icon {
+            background: linear-gradient(45deg, rgb(85, 255, 127), rgb(19, 151, 7));
+        }
+        .google_widget {
+            opacity: 90%;
+            background: var(--theme-color);
+            height: 2.7rem;
+            width: 100%;
+            margin-top: 1.2rem;
+            border-radius: 6rem;
+            padding: 0%;
+        }
+        .google_widget img {
+            margin: 0;
+            height: 2.7rem;
+            width: 2.7rem;
+        }
+        .google_window_top {
+            height: 2.7rem;
+            border-bottom: 0.1rem solid var(--icon-color);
+            margin: 0.5rem;
+        }
+        .google_window_top img {
+            height: 2.7rem;
+            width: 2.7rem;
+        }
+        .feed {
+            height: 2.7rem;
+        }
+        .feed i {
+            margin-right: 0.4rem;
+        }
+        .search_feeds {
+            color: var(--font-color);
+            margin: 1rem;
         }
     </style>
 
@@ -223,12 +260,22 @@
                             </div>
                         </div>
                     </div>
+                    <div class="google_widget" id="google_widget">
+                        <img src="images/google.png">
+                    </div>
                     <div class="apps_icon">
                         <div class="open_app_icon">
                             <div class="app1" id="about">
                                 <div class="about_icon">
                                     <div class="text">
                                         ABOUT
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="app1" id="hello_icon">
+                                <div class="about_icon hello_icon">
+                                    <div class="text">
+                                        HELLO
                                     </div>
                                 </div>
                             </div>
@@ -251,6 +298,28 @@
             <div class="app_area">
                 <div class="app_area_content">
                     hello
+                </div>
+            </div>
+            <div class="google_window">
+                <div class="google_window_top">
+                    <img src="images/google.png">
+                </div>
+                <div class="search_feeds">
+                    <a href="https://mrdevknown.blogspot.com">
+                    <div class="feed">
+                        <i class="fas fa-search"></i>
+                        mrdevknown
+                    </div></a>
+                    <a href="https://mypencyl.blogspot.com">
+                    <div class="feed">
+                        <i class="fas fa-search"></i>
+                        pencyl
+                    </div></a>
+                    <a href="https://theshiveshnetwork.github.io/shivesh/">
+                    <div class="feed">
+                        <i class="fas fa-search"></i>
+                        shivesh's portfolio
+                    </div></a>
                 </div>
             </div>
             <div class="bottom-controls">
@@ -277,6 +346,10 @@
         }
         updateClock();
 
+        document.getElementById("google_widget").addEventListener("click", () => {
+            document.querySelector(".google_window").style.display = "block";
+        })
+
 
         document.getElementById("about").addEventListener("click", () => {
             const str = `<h1>About</h1>
@@ -293,9 +366,28 @@
             // document.querySelector(".bottom-controls").style.opacity = "15%";
         })
 
+        document.getElementById("hello_icon").addEventListener("click", () => {
+            const str = `<h1>Hello People</h1>
+    <p>Hi,
+    I'am Shivesh, a
+    Web Developer !!</p>
+    <br/><br/>
+    I started to code when I was 11 when I learnt Visual Basic. I was very enthusiastic to build things. 
+    I have worked on some personal websites and portfolios and I am waiting for your projects to arrive at me. 
+    I can create your personal portfolios, website landing pages and business/product pages.
+    <br/><br/>
+    Explore some of my coding projects in the browsers... Click on the chrome icon or Microsoft Edge icon to 
+    get some content.`;
+            document.querySelector(".app_area_content").innerHTML = str;
+            document.querySelector(".app_area").style.display = "block";
+            // document.querySelector(".top-controls").style.opacity = "15%";
+            // document.querySelector(".bottom-controls").style.opacity = "15%";
+        })
+
 
         function closeAppFunction() {
             document.querySelector(".app_area").style.display = "none"
+            document.querySelector(".google_window").style.display = "none"
             // document.querySelector(".top-controls").style.opacity = "50%";
             // document.querySelector(".bottom-controls").style.opacity = "50%";
         }
