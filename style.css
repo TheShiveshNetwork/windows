@@ -16,12 +16,16 @@ a {
     text-decoration: none;
     color: inherit;
 }
+[contenteditable] {
+    outline: 0px solid transparent;
+}
 body {
     margin: 0%;
     padding: 0%;
     height: 100vh;
     width: 100vw;
     font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
 }
 body .dark-theme {
     --theme-color: #202020;
@@ -226,7 +230,9 @@ p {
     transition: 0.2s;
     box-shadow: 0 0 0rem 0.1rem var(--theme-color);
 }
-
+.notepad-content {
+    padding: 0.5rem 0.5rem;
+}
 .window_max {
     border-radius: 0;
     height: 100%;
@@ -359,7 +365,7 @@ object {
     height: 3.8rem;
     padding: 0 1rem;
 }
-.search_chrome{
+.search_chrome {
     position: absolute;
     left: 50%;
     transform: translate(-50%,0);
@@ -368,6 +374,12 @@ object {
     box-shadow: inset 0 0 0.15rem 0.15rem var(--theme-color);
     margin: 0 0 2rem 0;
     border-radius: 2rem;
+}
+.search_chrome p {
+    margin: 0 0.6rem 0 0.6rem;
+    position: relative;
+    top: 50%;
+    transform: translate(0,-50%);
 }
 .exp_area {
     height: 100%;
@@ -392,9 +404,20 @@ object {
 .exp_icon img {
     height: 3.5rem;
 }
-/* 
+
+
+
+
+
+
+
+
+
 @media (max-width: 733px) {
     .desktop {
         display: none;
     }
-} */
+    .phone {
+        display: flex;
+    }
+}

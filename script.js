@@ -22,8 +22,8 @@ function updateClock() {
         date = now.toLocaleDateString();
 
     // set the content of the element with the ID time to the formatted string
-    document.getElementById('time').innerHTML = time;
-    document.getElementById('date').innerHTML = date;
+    document.getElementById('time').innerText = time;
+    document.getElementById('date').innerText = date;
 
     // call this function again in 1000ms
     setTimeout(updateClock, 1000);
@@ -39,15 +39,23 @@ function close_function() {
     taskbar_window.style.display = "none";
 }
 
+const window_handle = (window_name, window1, window2, window3) => {
+    if (window_name.style.visibility === "visible" && window_name.style.display === "block") {
+        window_name.style.visibility = "hidden";
+    } else {
+        window_name.style.visibility = "visible";
+        window_name.style.zIndex = Number(window1.style.zIndex) + Number(window2.style.zIndex) + Number(window3.style.zIndex) + 1;
+    }
+}
+
 // chrome window
 document.querySelector(".chrome").addEventListener("click", function () {
     close_function();
-    if (document.querySelector(".chrome_window").style.visibility === "visible" && document.querySelector(".chrome_window").style.display === "block") {
-        document.querySelector(".chrome_window").style.visibility = "hidden";
-    } else {
-        document.querySelector(".chrome_window").style.visibility = "visible";
-        document.querySelector(".chrome_window").style.zIndex = Number(document.querySelector(".me_window").style.zIndex) + Number(document.querySelector(".exp_window").style.zIndex) + Number(document.querySelector(".file_window").style.zIndex) + 1;
-    }
+    let chrome_window = document.querySelector(".chrome_window");
+    let window1 = document.querySelector(".me_window");
+    let window2 = document.querySelector(".exp_window");
+    let window3 = document.querySelector(".file_window");
+    window_handle(chrome_window, window1, window2, window3);
     document.querySelector(".chrome_window").style.display = "block";
 });
 
@@ -74,12 +82,11 @@ cr_minimise.addEventListener("click", function () {
 // me window
 document.querySelector(".me").addEventListener("click", function () {
     close_function();
-    if (document.querySelector(".me_window").style.visibility === "visible" && document.querySelector(".me_window").style.display === "block") {
-        document.querySelector(".me_window").style.visibility = "hidden";
-    } else {
-        document.querySelector(".me_window").style.visibility = "visible";
-        document.querySelector(".me_window").style.zIndex = Number(document.querySelector(".chrome_window").style.zIndex) + Number(document.querySelector(".exp_window").style.zIndex) + Number(document.querySelector(".file_window").style.zIndex) + 1;
-    }
+    let chrome_window = document.querySelector(".me_window");
+    let window1 = document.querySelector(".chrome_window");
+    let window2 = document.querySelector(".exp_window");
+    let window3 = document.querySelector(".file_window");
+    window_handle(chrome_window, window1, window2, window3);
     document.querySelector(".me_window").style.display = "block";
 });
 
@@ -106,12 +113,11 @@ me_minimise.addEventListener("click", function () {
 // file window
 document.querySelector(".notepad").addEventListener("click", function () {
     close_function();
-    if (document.querySelector(".file_window").style.visibility === "visible" && document.querySelector(".file_window").style.display === "block") {
-        document.querySelector(".file_window").style.visibility = "hidden";
-    } else {
-        document.querySelector(".file_window").style.visibility = "visible";
-        document.querySelector(".file_window").style.zIndex = Number(document.querySelector(".chrome_window").style.zIndex) + Number(document.querySelector(".exp_window").style.zIndex) + Number(document.querySelector(".me_window").style.zIndex) + 1;
-    }
+    let chrome_window = document.querySelector(".file_window");
+    let window1 = document.querySelector(".chrome_window");
+    let window2 = document.querySelector(".exp_window");
+    let window3 = document.querySelector(".me_window");
+    window_handle(chrome_window, window1, window2, window3);
     document.querySelector(".file_window").style.display = "block";
 });
 
@@ -138,12 +144,11 @@ minimise.addEventListener("click", function () {
 // explorer window
 document.querySelector(".explorer").addEventListener("click", function () {
     close_function();
-    if (document.querySelector(".exp_window").style.visibility === "visible" && document.querySelector(".exp_window").style.display === "block") {
-        document.querySelector(".exp_window").style.visibility = "hidden";
-    } else {
-        document.querySelector(".exp_window").style.visibility = "visible";
-        document.querySelector(".exp_window").style.zIndex = Number(document.querySelector(".chrome_window").style.zIndex) + Number(document.querySelector(".me_window").style.zIndex) + Number(document.querySelector(".file_window").style.zIndex) + 1;
-    }
+    let chrome_window = document.querySelector(".exp_window");
+    let window1 = document.querySelector(".chrome_window");
+    let window2 = document.querySelector(".me_window");
+    let window3 = document.querySelector(".file_window");
+    window_handle(chrome_window, window1, window2, window3);
     document.querySelector(".exp_window").style.display = "block";
 });
 
@@ -220,7 +225,49 @@ document.querySelector(".expand").addEventListener("click", function () {
     }
 })
 
+document.getElementById("about").addEventListener("click", () => {
+    const str = `<h1>About</h1>
+    Welcome to Caterwaul: A Windows 11 themed website... One day, the idea came randomly in my mind, that I know 
+    to code. So, why not make a website to display my skills. I copied the design of the Windows 11 and made an
+    interesting website with the theme.
+    <br/><br/>
+    You can click on different icons and get some static content related to myself in theme of 
+    different apps on windows. 
+    <b>Happy Explroration</b>`;
+    document.querySelector(".window-content").innerHTML = str;
+    document.querySelector(".title_name").innerText = "About.txt - Notepad";
+    if (document.querySelector(".file_window").style.visibility === "visible" && document.querySelector(".file_window").style.display === "block") {
+        document.querySelector(".file_window").style.visibility = "hidden";
+    } else {
+        document.querySelector(".file_window").style.visibility = "visible";
+        document.querySelector(".file_window").style.zIndex = Number(document.querySelector(".chrome_window").style.zIndex) + Number(document.querySelector(".exp_window").style.zIndex) + Number(document.querySelector(".me_window").style.zIndex) + 1;
+    }
+    document.querySelector(".file_window").style.display = "block";
+})
+
+document.getElementById("hello").addEventListener("click", () => {
+    var str = `<h1>Hello People</h1>
+    <p>Hi,
+    I'am Shivesh, a
+    Web Developer !!</p>
+    <br/><br/>
+    I started to code when I was 11 when I learnt Visual Basic. I was very enthusiastic to build things. 
+    I have worked on some personal websites and portfolios and I am waiting for your projects to arrive at me. 
+    I can create your personal portfolios, website landing pages and business/product pages.
+    <br/><br/>
+    Explore some of my coding projects in the browsers... Click on the chrome icon or Microsoft Edge icon to 
+    get some content.
+    `;
+    document.querySelector(".window-content").innerHTML = str;
+    if (document.querySelector(".file_window").style.visibility === "visible" && document.querySelector(".file_window").style.display === "block") {
+        document.querySelector(".file_window").style.visibility = "hidden";
+    } else {
+        document.querySelector(".file_window").style.visibility = "visible";
+        document.querySelector(".file_window").style.zIndex = Number(document.querySelector(".chrome_window").style.zIndex) + Number(document.querySelector(".exp_window").style.zIndex) + Number(document.querySelector(".me_window").style.zIndex) + 1;
+    }
+    document.querySelector(".file_window").style.display = "block";
+})
 
 // display div
 $("#mrdevknown")
-    .html('<object data="https://mrdevknown.blogspot.com/"/>');
+    .html('<object data="https://theshiveshnetwork.github.io/shivesh/"/>');

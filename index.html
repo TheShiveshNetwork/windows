@@ -10,10 +10,11 @@
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="phone.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <title>Document</title>
+    <title>Windows 11</title>
 
 </head>
 
@@ -87,15 +88,17 @@
         <!-- file window -->
         <div class="file_window window">
             <div class="titlebar">
-                <div class="title"><img src="images/Win-Notepad.webp"
-                        style="height: 1rem; padding-right: 0.7rem;">Window</div>
+                <div class="title"><img src="images/Win-Notepad.webp" style="height: 1rem; padding-right: 0.7rem;">
+                    <div class="title_name">Notepad</div>
+                </div>
                 <div class="right">
                     <i class="far fa-minus" style="font-size: 0.9rem;"></i>
                     <i class="fal fa-window-restore" style="font-size: 0.9rem;"></i>
                     <i class="fal fa-times"></i>
                 </div>
             </div>
-            <div class="window-content">hello</div>
+            <div class="window-content notepad-content" contenteditable="true">Hello there! GO to the file explorer and
+                click on different files to open them...</div>
         </div>
 
         <!-- chrome window -->
@@ -112,7 +115,9 @@
             <div class="window-content" id="chrome">
                 <div class="sites_area">
                     <div class="chrome_area">
-                        <div class="search_chrome"></div>
+                        <div class="search_chrome">
+                            <p contenteditable="true"></p>
+                        </div>
                         <div class="site_icons">
                             <a href="https://mrdevknown.blogspot.com/" target="_blank">
                                 <img src="images/mrdevknown.png"></a>
@@ -138,7 +143,7 @@
             <div class="window-content" id="mrdevknown"></div>
         </div>
 
-        <!-- exp window -->
+        <!-- explorer window -->
         <div class="exp_window window">
             <div class="titlebar">
                 <div class="title"><img src="images/File-Explorer.png"
@@ -156,7 +161,7 @@
                             <img src="images/Win-Notepad.webp">
                             <p>About</p>
                         </div>
-                        <div class="exp_icon">
+                        <div class="exp_icon" id="hello">
                             <img src="images/Win-Notepad.webp">
                             <p>Hello</p>
                         </div>
@@ -198,7 +203,141 @@
         </div>
     </div>
 
+
+    <!-- phone -->
+
+
+    <div class="phone">
+        <div class="phone-bg">
+            <div class="top-controls">
+                <div class="left">
+                    <i class="fas fa-wifi"></i>
+                </div>
+                <div class="right">
+                    <div id="phone_time"></div>
+                </div>
+            </div>
+            <div class="area">
+                <div class="apps">
+                    <div class="widget">
+                        Hello There
+                        <div class="icons">
+                            <div class="icon_area" id="fullscreen">
+                                <i class="fal fa-expand-wide"></i>
+                            </div>
+                            <div class="icon_area" id="dark_mode_btn">
+                                <i class="fal fa-moon"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="apps_icon">
+                        <div class="open_app_icon">
+                            <div class="app1" id="about">
+                                <div class="about_icon">
+                                    <div class="text">
+                                        ABOUT
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="visit_app_icon">
+                            <div class="app1">
+                                <a href="https://mrdevknown.blogspot.com" target="_blank">
+                                    <img src="images/mrdevknown.png">
+                                </a>
+                            </div>
+                            <div class="app1">
+                                <a href="https://mypencyl.blogspot.com" target="_blank">
+                                    <img src="images/pencyl-icon.png">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="app_area">
+                <div class="app_area_content">
+                    hello
+                </div>
+            </div>
+            <div class="bottom-controls">
+                <div class="control-icon back"><i class="far fa-bars"></i></div>
+                <div class="control-icon back" onclick="closeAppFunction()"><i class="fal fa-home-alt"></i></div>
+                <div class="control-icon back" onclick="closeAppFunction()"><i class="far fa-chevron-left"></i></div>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
+
+    <script>
+        function updateClock() {
+            var now = new Date();
+            if (now.getMinutes() < 10) { time_minutes = "0" + now.getMinutes() } else { if (now.getMinutes() == 0) { time_minutes = "00" } else { time_minutes = now.getMinutes() } }
+
+            time = now.getHours() + ':' + time_minutes,
+                date = now.toLocaleDateString();
+
+            // set the content of the element with the ID time to the formatted string
+            document.getElementById('phone_time').innerText = time;
+
+            // call this function again in 1000ms
+            setTimeout(updateClock, 1000);
+        }
+        updateClock();
+
+
+        document.getElementById("about").addEventListener("click", () => {
+            const str = `<h1>About</h1>
+    Welcome to Caterwaul: A Windows 11 themed website... One day, the idea came randomly in my mind, that I know 
+    to code. So, why not make a website to display my skills. I copied the design of the Windows 11 and made an
+    interesting website with the theme.
+    <br/><br/>
+    You can click on different icons and get some static content related to myself in theme of 
+    different apps on windows. 
+    <b>Happy Explroration</b>`;
+            document.querySelector(".app_area_content").innerHTML = str;
+            document.querySelector(".app_area").style.display = "block";
+            // document.querySelector(".top-controls").style.opacity = "15%";
+            // document.querySelector(".bottom-controls").style.opacity = "15%";
+        })
+
+
+        function closeAppFunction() {
+            document.querySelector(".app_area").style.display = "none"
+            // document.querySelector(".top-controls").style.opacity = "50%";
+            // document.querySelector(".bottom-controls").style.opacity = "50%";
+        }
+
+
+        var elem = document.body;
+        var full_screen = document.querySelector(".expand");
+        function requestFullScreen(element) {
+            var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+
+            if (requestMethod) { // Native full screen.
+                requestMethod.call(element);
+            } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+                var wscript = new ActiveXObject("WScript.Shell");
+                if (wscript !== null) {
+                    wscript.SendKeys("{F11}");
+                }
+            }
+        }
+
+        document.getElementById("fullscreen").addEventListener("click", () => {
+            document.querySelector(".icon_area").classList.toggle("action-active")
+            if (window.innerWidth == screen.width && window.innerHeight == screen.height) {
+                document.exitFullscreen();
+            } else {
+                requestFullScreen(elem);
+            }
+        })
+
+        document.getElementById("dark_mode_btn").addEventListener("click", () => {
+            document.querySelector(".phone").classList.toggle("phone-dark");
+        })
+    </script>
 
 </body>
 

@@ -1,0 +1,187 @@
+body {
+    overflow: hidden;
+}
+.phone {
+    height: 100%;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    --wallpaper: url('images/phone-wallpaper-responsive.jpg');
+    --theme-color: #fff;
+    --font-color: #000;
+    --shadow-gradient: rgb(145, 145, 145) 0 0 0.4rem 0;
+    --icon-color: rgb(233, 233, 233);
+}
+
+.phone-dark {
+    --wallpaper: url('images/1726939.png');
+    --theme-color: #000;
+    --font-color: #fff;
+    --shadow-gradient: rgb(3, 18, 41) 0 0 0.4rem 0;
+    --icon-color: rgb(6, 12, 41);
+}
+
+.left {
+    position: absolute;
+    left: 0%;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.phone-bg {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    height: 100%;
+    width: 100%;
+    background: var(--wallpaper);
+    background-position: center;
+    background-size: cover;
+}
+
+.bottom-controls {
+    z-index: 1111;
+    opacity: 50%;
+    background: var(--theme-color);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0%;
+    height: 2.4rem;
+    width: 100%;
+}
+
+.control-icon {
+    /* background: gray; */
+    height: 100%;
+    width: 33%;
+    padding: 0 1rem 0 1rem;
+    margin: 0 1rem 0 1rem;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.control-icon:hover {
+    background: rgba(128, 128, 128, 0.589);
+}
+
+.control-icon i {
+    color: var(--font-color);
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-size: 1.2rem;
+}
+
+.top-controls {
+    z-index: 1111;
+    opacity: 50%;
+    position: absolute;
+    top: 0%;
+    height: 1.6rem;
+    width: 100%;
+    background: var(--theme-color);
+    color: var(--font-color);
+}
+
+.top-controls .right,
+.top-controls .left {
+    padding: 0.27rem 0.8rem 0 0.8rem;
+}
+
+.area {
+    /* background: #fff; */
+    padding: 1.6rem 0 2.4rem 0;
+    height: 100%;
+}
+
+.apps {
+    margin: 1rem;
+}
+
+.open_app_icon,
+.visit_app_icon {
+    display: flex;
+}
+
+.apps img {
+    height: 3rem;
+    width: 3rem;
+    margin: 1rem 0.5rem;
+}
+
+.apps .widget {
+    background: var(--theme-color);
+    border-radius: 0.3rem;
+    height: 9rem;
+    width: 100%;
+    font-size: 2rem;
+    color: var(--font-color);
+    text-align: center;
+    padding: 1rem;
+    box-shadow: var(--shadow-gradient);
+}
+.apps .widget .icons {
+    display: flex;
+}
+
+.icon_area {
+    background: var(--icon-color);
+    width: 4rem;
+    height: 3rem;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-110%, -70%);
+    margin-right: 1rem;
+    border-radius: 0.3rem;
+    box-shadow: var(--shadow-gradient);
+}
+
+.icon_area i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+}
+
+.app_area {
+    display: none;
+    background: var(--theme-color);
+    padding: 1.6rem 0 2.4rem 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
+.app_area_content {
+    background: var(--theme-color);
+    color: var(--font-color);
+    height: 100%;
+    padding: 0.6rem;
+}
+
+.about_icon {
+    height: 3rem;
+    width: 3rem;
+    background: linear-gradient(45deg, rgb(85, 127, 255), rgb(0, 68, 255));
+    margin: 1rem 0.5rem;
+    border-radius: 0.6rem;
+}
+
+.about_icon .text {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: rgb(20, 45, 68);
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -50%);
+}
