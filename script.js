@@ -227,7 +227,7 @@ document.querySelector(".expand").addEventListener("click", function () {
 
 document.getElementById("about").addEventListener("click", () => {
     const str = `<h1>About</h1>
-    Welcome to Caterwaul: A Windows 11 themed website... One day, the idea came randomly in my mind, that I know 
+    Welcome to doors 11: A Windows 11 themed website... One day, the idea came randomly in my mind, that I know 
     to code. So, why not make a website to display my skills. I copied the design of the Windows 11 and made an
     interesting website with the theme.
     <br/><br/>
