@@ -195,12 +195,12 @@ body {
     width: 100%;
     margin-top: 1.2rem;
     border-radius: 6rem;
-    padding: 0%;
 }
 .google_widget img {
-    margin: 0;
-    height: 2.7rem;
-    width: 2.7rem;
+    height: 2.2rem;
+    width: 2.2rem;
+    position: relative;
+    bottom: 29%;
 }
 .google_window_top {
     height: 2.7rem;
@@ -208,8 +208,8 @@ body {
     margin: 0.5rem;
 }
 .google_window_top img {
-    height: 2.7rem;
-    width: 2.7rem;
+    height: 2rem;
+    width: 2rem;
 }
 .feed {
     height: 2.7rem;
